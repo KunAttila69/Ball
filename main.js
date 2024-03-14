@@ -25,8 +25,8 @@ class Ball{
     }
 
     MoveBall = (dir) => { 
-        dir.x = this.x <= 0 ? dir.x*-1 : this.x >= canvas.width ? dir.x*-1 : dir.x
-        dir.y = this.y <= 0 ? dir.y*-1 : this.y >= canvas.height ? dir.y*-1 : dir.y 
+        dir.x *= this.x <= 0 || this.x >= canvas.width ? -1 : 1
+        dir.y *= this.y <= 0 || this.y >= canvas.height ? -1 : 1
 
         this.x += this.speed * dir.x
         this.y += this.speed * dir.y
